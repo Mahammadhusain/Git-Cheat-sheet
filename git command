@@ -1,0 +1,103 @@
+git init  -> intialize the repo
+git add "file_name" -> add specific file in staging area 
+git add. -> add all file in staging area
+git status -> 
+git commit -> commit the changes
+git log -> check commit history
+git reset --hard -> Rollback to previous commit
+
+=======================================================
+Git Configuration related command
+=======================================================
+- git config -l -> add git configuration at local system
+- git config --global user.name -> show username
+- git config --global user.name "Mahammadhusain" -> set username at local system
+- git config --global user.email -> show email
+- git config --global user.email "kadiwala.530@gmail.com" -> set email at local system
+- git config --global color.ui auto -> set colorfull text in terminal
+
+
+
+
+===========================================================
+Git Project management command
+===========================================================
+traked - in staging area | untraked - out from staging area
+===========================================================
+
+- git --version -> Show git version in local system.
+- git init -> convert local directory in git directory(.git directory added).
+- git status -> show tracked, un-tracked files.
+- git add file1.txt file2.txt file3.py -> add file in staging area.
+- git add .  -> add many files in staging area.
+- git add file*  -> add many files in staging area which start with (file).
+- git reset file1.txt -> un-stage file from commit area (change in file will be preserve). 
+- git rm --cached file1.txt -> same as above.
+- git reset HEAD -p -> un-stage file one-by-one.
+- git diff -> show all changes history before commit. 
+- git diff --staged -> show all changes history which staged but not yet commited. 
+- git diff fil1.txt -> show all changes history in specific file.
+- git commit -m "all files added in master branch" -> commit changes with message.
+- git commit -a -m "second time commited in master branch" -> stage & commit at once.
+- git log -> show all commit history.
+- git log -p -> show all commit history with change logs (diff).
+- git reflog -> show short commit history with commit message (one liner commit history).
+- git show abc1234def5678901234567890abcdef12345678 -> show changelogs of specific commit-id
+- git show --stat abc1234def5678901234567890abcdef12345678 -> This will show a summary of the number of lines added and removed for each file, without displaying the full diff.
+- git rm file1.txt -> remove file(file must in staging area).
+- git mv file1.txt filewww.py -> rename file(file must in staging area).
+
+Rollback
+- git revert HEAD -> Rollback last commit.
+- git revert abc1234d -> Rollback specific commit (with commit id).
+
+Tag (Add Bookmark on specific commit)
+- git tag LTS_VERSION_1.0 abc1234def5678901234567890abcdef12345678 -> Tag add karke kisi specific commit pe ek version bana sakte hai
+- git checkout tag LTS_VERSION_1.0 -> using this command can roll back project (after applied this command removed work from tag to till now commit)
+- git tag --list -> can show all tags
+- git tag -a LTS_VERSION_2.0 -m "This is LTS version V2" -> can show all tags
+- git tag -d LTS_VERSION_1.0 -> Delete tag
+
+Branching
+- git branch -> show all git branch 
+- git branch feature1 -> create new branch
+- git checkout feature1 -> switch branch
+- git checkout -b feature1 -> create new branch and switch on it.
+- git branch -D feature1 -> Delete branch (without merge).
+- git branch -d feature1 -> Delete branch (after merge).
+- git merge feature1 -> Merge branch (current branch + given branch).
+- git rebase feature1 -> Tranfer all work of one branch to another branch (feature1 work tansfered in feature2).
+- git stash -> change branch from current to another without commiting changes (save work without commiting it).
+- git stash list -> list of stashed files.
+- git stash drop -> remove list of stashed files.
+- git stash pop -> retrive changes which was stashed.
+
+
+Github
+- git remote add origin https://github.com/Mahammadhusain/django-cheat-sheet.git -> connect local repo to remote (local to github).
+- git remote -v -> show remote repo. 
+- git remote remove origin -> remove repo from remote (remove from github) .
+- git remote show origin (repo name) -> show details of specific remote repo. 
+- git push -u origin master -> first time push local to remote.
+- git push origin feature1 -> push new repo on remote (push new repo on Github).
+- git push origin LTS_VERSION_1.0 -> push tag on remote (push tag on Github).
+- git push origin --tags -> push all tags on remote (push tags on Github).
+- git pull -> pull changes from remote to local.
+- git clone https://github.com/Mahammadhusain/django-cheat-sheet.git  -> clone repo (master branch).
+- git clone https://github.com/Mahammadhusain/django-cheat-sheet.git developement -> clone specific repo like (developement branch).
+
+NOTES:
+-------- Diff (git fetch & git pull) --------
+- git fetch: Downloads updates from a remote repository (like new commits or branches) to your local repository but doesn't apply them to your current branch. It updates your local tracking branches (e.g., origin/main) without altering your working directory.
+- git pull: Combines git fetch and git merge in one step. It fetches updates from the remote repository and immediately merges them into your current branch. This can change your working directory by adding new commits and potentially causing merge conflicts.
+
+-------- Diff (git merge & git rebase) --------
+- git merge: Combines branches by creating a merge commit. Preserves the full history, including branch points.
+- git rebase: Reapplies commits from one branch onto another, creating a linear history without merge commits. History is rewritten.
+
+
+
+
+
+
+
